@@ -448,6 +448,110 @@ body {
     font-weight: 600;
     color: #e5e7eb;
 }
+/* --- EXPERIENCE CARD COMPONENT --- */
+.exp-card {
+    display: flex;
+    align-items: flex-start; /* Image ko default top alignment deta hai */
+    gap: 16px;               /* Profile/Brand image aur detail ke beech tight gap */
+    background-color: #121212; 
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: left;
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto 12px auto; /* Agle dusre cards se separation spacing maintaining */
+    transition: all 0.25s ease;
+}
+
+/* Hover dynamic soft glow frame action */
+.exp-card:hover {
+    border-color: rgba(168, 85, 247, 0.2);
+    background-color: rgba(168, 85, 247, 0.01);
+}
+
+/* Organisation Picture Dimensions Frame */
+.exp-pic {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;      /* Clean modern squircle profile */
+    object-fit: cover;
+    background-color: #0d0d0d;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    flex-shrink: 0;          /* Multi-screen width change par image compress nahi hogi */
+}
+
+.exp-details {
+    flex-grow: 1;
+}
+
+/* Flexible row structure for header and timeline mapping */
+.exp-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+@media (min-width: 576px) {
+    .exp-header {
+        flex-direction: row; /* Horizontal text and dates split elements for desktop */
+        align-items: flex-start;
+    }
+}
+
+.exp-role {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.exp-company {
+    color: #c084fc;          /* Brand text matching electric purple */
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 1px;
+}
+
+/* Compact duration timeline label design */
+.exp-duration {
+    font-family: monospace;
+    font-size: 0.7rem;
+    color: #9ca3af;
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 2px 8px;
+    border-radius: 50px;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+/* Minimal description list rules */
+.exp-desc-list {
+    padding-left: 14px;      /* Slight indent for dots indentation */
+    color: #9ca3af;
+    font-size: 0.8rem;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+.exp-desc-list li {
+    margin-bottom: 4px;
+}
+
+.exp-desc-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* 📱 Responsive break alignment configuration for phones */
+@media (max-width: 480px) {
+    .exp-card {
+        flex-direction: column; /* Mobile screens par image text ke upar drop ho jayegi */
+        gap: 10px;
+        padding: 14px;
+    }
+}
 
 /* --- 3. EDUCATION SECTION --- */
 .margin-header {
@@ -683,13 +787,140 @@ body {
     color: #ffffff;
     transform: translateY(-1px);
 }
-
-/* --- FOOTER --- */
-.footer {
-    padding: 24px;
+/* --- CONNECT SECTION (REDESIGNED PREMIUM GRID) --- */
+.connect-section { 
     text-align: center;
+}
+
+.connect-title { 
+    font-size: 1.8rem; 
+    font-weight: 800; 
+    margin: 4px 0 8px 0;
+    letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) { 
+    .connect-title { font-size: 2.8rem; } 
+}
+
+.connect-desc { 
+    color: #9ca3af; 
+    max-width: 480px; 
+    margin: 0 auto 20px auto; 
+    font-size: 0.85rem;
+    font-weight: 300;
+}
+
+/* Master row layout holding social boxes */
+.social-links { 
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile view par clean rows setup */
+    gap: 8px; 
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+@media (min-width: 576px) {
+    .social-links {
+        grid-template-columns: repeat(3, 1fr); /* Desktop par parallel balanced split blocks */
+    }
+}
+
+/* Reconfigured Light Solid Black Blocks */
+.social-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 20px;
+    border-radius: 8px;
+    background-color: #121212; /* Sleek dark card wrapper */
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    
+    /* Typography Overhaul */
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Sleek Cyber Glow Hover Trigger Engine */
+.social-box:hover {
+    color: #ffffff;
+    background-color: #16121e; /* Smooth deep purple-tint overlay */
+    border-color: rgba(168, 85, 247, 0.4); /* Neon amethyst soft frame activation */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(168, 85, 247, 0.12);
+}
+
+/* Quick color override accents for individual identity mapping */
+.social-box:nth-child(1):hover { border-color: #0077b5; box-shadow: 0 8px 24px rgba(0, 119, 181, 0.15); } /* LinkedIn Blue flare */
+.social-box:nth-child(2):hover { border-color: #ea4c89; box-shadow: 0 8px 24px rgba(234, 76, 137, 0.15); }  /* Dribbble Pink flare */
+.social-box:nth-child(3):hover { border-color: #0057ff; box-shadow: 0 8px 24px rgba(0, 87, 255, 0.15); }   /* Behance Blue flare */
+
+/* --- FOOTER (REDESIGNED ELITE GRID) --- */
+.footer { 
+    padding: 16px 24px;
+    background-color: #0a0a0a; 
+    border-top: 1px solid rgba(255, 255, 255, 0.015);
+}
+
+/* Flex wrapper inside footer to manage positioning */
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* Mobile par structural text upar, button neeche stacks banayega */
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+@media (min-width: 768px) {
+    .footer .container {
+        flex-direction: row; /* Desktop standard splits right & left side anchors */
+        gap: 0;
+    }
+}
+
+/* Core metadata prose design */
+.footer p {
+    font-family: monospace; 
+    font-size: 0.65rem; 
+    color: #374151; /* Understated stealth slate-gray */
+    text-transform: uppercase; 
+    letter-spacing: 0.06em; 
+    font-weight: 500; 
+}
+
+/* Creative Back To Top micro-interaction link button */
+.footer .scroll-top {
     font-family: monospace;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: #4b5563;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Purple dynamic lift highlight activation on hover triggers */
+.footer .scroll-top:hover {
+    color: #c084fc;
+    background-color: rgba(168, 85, 247, 0.04);
+    border-color: rgba(168, 85, 247, 0.15);
+    transform: translateY(-1px);
 }
